@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Food | مجتمع الذكاء الغذائي</title>
+    <meta name="description" content="Smart Food: مجتمع يجمع الذكاء الاصطناعي مع خبراء التغذية لجعل الأكل الصحي بسيطًا وعمليًا في حياتك اليومية." />
+    <meta name="theme-color" content="#4CAF50" />
+    <meta property="og:title" content="Smart Food | مجتمع الذكاء الغذائي" />
+    <meta property="og:description" content="ودّع التخمين، وابدأ حياة غذائية ذكية. مجتمع يجمع الذكاء الاصطناعي وخبراء التغذية لنصائح وخطط عملية يومية." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/logo.png" />
+    <meta property="og:locale" content="ar_AR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#4CAF50',
+              dark: '#0F172A',
+            },
+            fontFamily: {
+              sans: ['Tajawal', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="font-sans text-slate-800 bg-white selection:bg-primary/20">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:right-3 focus:bg-white focus:border focus:border-slate-300 focus:rounded-md focus:px-3 focus:py-2">تخطي إلى المحتوى</a>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+      <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center gap-3">
+            <img src="./assets/logo.png" alt="شعار Smart Food" class="h-10 w-auto sm:h-12" />
+          </div>
+          <div class="hidden md:flex items-center gap-8">
+            <a href="#how" class="text-slate-700 hover:text-primary transition">كيف نعمل</a>
+            <a href="#why" class="text-slate-700 hover:text-primary transition">لماذا Smart Food</a>
+            <a href="#ai" class="text-slate-700 hover:text-primary transition">الذكاء الاصطناعي</a>
+            <a href="#stories" class="text-slate-700 hover:text-primary transition">قصص وتجارب</a>
+          </div>
+          <div class="hidden md:flex items-center gap-3">
+            <a href="#join" class="px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary/10 transition">انضم الآن</a>
+            <a href="#whatsapp" class="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 transition">انضم لمجتمع واتساب</a>
+          </div>
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-primary" aria-label="فتح القائمة">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
+        <div class="px-4 py-3 space-y-2">
+          <a href="#how" class="block py-2 text-slate-700 hover:text-primary">كيف نعمل</a>
+          <a href="#why" class="block py-2 text-slate-700 hover:text-primary">لماذا Smart Food</a>
+          <a href="#ai" class="block py-2 text-slate-700 hover:text-primary">الذكاء الاصطناعي</a>
+          <a href="#stories" class="block py-2 text-slate-700 hover:text-primary">قصص وتجارب</a>
+          <div class="flex items-center gap-2 pt-2">
+            <a href="#join" class="flex-1 text-center px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary/10 transition">انضم الآن</a>
+            <a href="https://lnkd.in/d5v4acfP" target="_blank" class="flex-1 text-center px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 transition">واتساب</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Top Banner: Nutrition + AI image -->
+      <section id="banner" class="relative">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=2000&auto=format&fit=crop" alt="خضروات طازجة مع لمسة تقنية" class="w-full h-56 sm:h-80 lg:h-[420px] object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 right-4 rtl:right-auto rtl:left-4 text-white">
+                <p class="text-sm sm:text-base opacity-90">التغذية × الذكاء الاصطناعي</p>
+                <h2 class="text-xl sm:text-2xl font-extrabold">التغذية العلاجية… صارت أذكى</h2>
+                <p class="mt-1 text-xs sm:text-sm opacity-95">وَدِّع التخمين، وابدأ حياة غذائية ذكية—نصائح وخطط جاهزة يوميًا.</p>
+                <div class="mt-3 flex items-center gap-2">
+                  <span class="px-2 py-1 rounded-full bg-white/15 border border-white/20 text-white text-xs">🤖 AI</span>
+                  <span class="px-2 py-1 rounded-full bg-white/15 border border-white/20 text-white text-xs">🍏 تغذية</span>
+                  <span class="px-2 py-1 rounded-full bg-white/15 border border-white/20 text-white text-xs">📱 موبايل</span>
+                </div>
+              </div>
+              <img src="./assets/logo.png" alt="شعار Smart Food" class="hidden sm:block absolute top-4 left-4 rtl:left-auto rtl:right-4 h-12 w-auto drop-shadow" />
+             
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problem + Regional Stats (two-column) -->
+      <section id="problem" class="py-16 sm:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid gap-12 lg:grid-cols-2 items-start">
+            <!-- Problem copy -->
+            <div class="order-2 lg:order-1">
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 text-center lg:text-right">المشكلة</h2>
+              <p class="mt-3 text-slate-700 text-center lg:text-right">رغم الاهتمام المتزايد بالصحة في العالم العربي، يواجه كثير من الناس صعوبة في اتخاذ قرارات غذائية صحيحة بسبب نقص الأدوات المناسبة باللغة والثقافة، ما يساهم في تفشي السمنة والأمراض المزمنة.</p>
+              <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+                  <h3 class="font-bold text-slate-900">01</h3>
+                  <p class="mt-1 text-slate-700">ارتفاع السمنة والأمراض المزمنة بسبب التغذية السيئة.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+                  <h3 class="font-bold text-slate-900">02</h3>
+                  <p class="mt-1 text-slate-700">التطبيقات الحالية معقدة وغير مخصصة للمستخدم العربي.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition sm:col-span-2">
+                  <h3 class="font-bold text-slate-900">03</h3>
+                  <p class="mt-1 text-slate-700">صعوبة حساب السعرات وتحديد الوجبات المناسبة.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Regional stats bars -->
+            <div class="order-1 lg:order-2">
+              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 text-center lg:text-right">نمو السمنة في العالم العربي</h3>
+              <p class="mt-3 text-slate-600 text-center lg:text-right">الاتجاهات العامة تشير إلى ارتفاع في معظم الدول، خاصة بين النساء.</p>
+              <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="grid md:grid-cols-2 items-center gap-4">
+                  <div class="relative aspect-square">
+                    <canvas id="statsDonut" aria-label="مخطط دونات لنسب السمنة"></canvas>
+                  </div>
+                  <ul class="space-y-2 text-slate-700 text-sm">
+                    <li class="flex items-center justify-between gap-4"><span class="flex items-center gap-2"><span class="h-3 w-3 rounded-full" style="background:#2e7d67"></span>السعودية</span><span>24.1%</span></li>
+                    <li class="flex items-center justify-between gap-4"><span class="flex items-center gap-2"><span class="h-3 w-3 rounded-full" style="background:#a7e6dd"></span>الإمارات</span><span>10.3%</span></li>
+                    <li class="flex items-center justify-between gap-4"><span class="flex items-center gap-2"><span class="h-3 w-3 rounded-full" style="background:#9ed7d5"></span>قطر</span><span>22.8%</span></li>
+                    <li class="flex items-center justify-between gap-4"><span class="flex items-center gap-2"><span class="h-3 w-3 rounded-full" style="background:#7cb8b6"></span>مصر</span><span>22.1%</span></li>
+                    <li class="flex items-center justify-between gap-4"><span class="flex items-center gap-2"><span class="h-3 w-3 rounded-full" style="background:#5aa69f"></span>الكويت</span><span>20.7%</span></li>
+                  </ul>
+                </div>
+              </div>
+              <p class="mt-4 text-xs text-slate-500 text-center lg:text-right">أرقام تقريبية للعرض التوضيحي (2020–2023). مصادر: <a class="underline hover:text-primary" href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank" rel="noreferrer">PMC</a>، تقارير وطنية.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solution Section -->
+      <section id="solution" class="py-16 sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">الحل</h2>
+            <p class="mt-3 text-slate-700">نقدم تجربة غذائية ذكية وسهلة، تعتمد على الذكاء الاصطناعي لتبسيط التغذية اليومية، وتساعد المستخدم العربي على اتخاذ قرارات صحية دون معرفة مسبقة بالتغذية أو السعرات.</p>
+          </div>
+          <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">📷</div>
+              <h3 class="mt-4 font-bold text-slate-900">تصوير الوجبة</h3>
+              <p class="mt-2 text-sm text-slate-600">تحليل تلقائي للسعرات والمكونات باستخدام الذكاء الاصطناعي.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">🧠</div>
+              <h3 class="mt-4 font-bold text-slate-900">خطة شخصية</h3>
+              <p class="mt-2 text-sm text-slate-600">خطط غذائية مناسبة لحالتك الصحية وأهدافك.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">🔁</div>
+              <h3 class="mt-4 font-bold text-slate-900">تحديث تلقائي</h3>
+              <p class="mt-2 text-sm text-slate-600">تتكيّف الخطة مع تقدّمك الأسبوعي.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">🥗</div>
+              <h3 class="mt-4 font-bold text-slate-900">بدائل محلية</h3>
+              <p class="mt-2 text-sm text-slate-600">اقتراح بدائل عربية شائعة تناسب ثقافتك ونمط يومك.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Hero -->
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-primary/5 to-transparent"></div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-10 items-center py-16 sm:py-20">
+            <div>
+              <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                كم مرة تحس إنك تحب تاكل كل حاجة 🍕🍫، وبعدها تقول: لازم أبدأ آكل صحي؟ 😅
+              </h1>
+              <p class="mt-4 text-lg text-slate-700">
+                الحياة مزدحمة: شغل، أهل، ضغوط يومية—والاهتمام بنفسك يصير أصعب.
+                Smart Food يمزج الذكاء الاصطناعي مع خبراء التغذية ليجعل خطوات الصحة اليومية سهلة وتدريجية. صوّر وجبتك بالتطبيق وسيقدّر الذكاء الاصطناعي مكوناتها والسعرات الحرارية ويقترح بدائل أذكى.
+              </p>
+              <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                <a id="whatsapp" href="https://lnkd.in/d5v4acfP" target="_blank" class="px-6 py-3 rounded-xl bg-primary text-white hover:bg-primary/90 transition shadow-sm text-center">انضم الآن إلى مجتمع Smart Food على واتساب</a>
+                <a href="#how" class="px-6 py-3 rounded-xl border border-slate-300 text-slate-800 hover:border-primary hover:text-primary transition text-center">كيف نعمل؟</a>
+              </div>
+              <div class="mt-6 flex items-center gap-4 text-slate-500 text-sm">
+                <div class="flex -space-x-2 rtl:space-x-reverse">
+                  <img src="https://i.pravatar.cc/40?img=12" alt="" class="h-8 w-8 rounded-full border border-white" />
+                  <img src="https://i.pravatar.cc/40?img=22" alt="" class="h-8 w-8 rounded-full border border-white" />
+                  <img src="https://i.pravatar.cc/40?img=32" alt="" class="h-8 w-8 rounded-full border border-white" />
+                  <img src="https://i.pravatar.cc/40?img=42" alt="" class="h-8 w-8 rounded-full border border-white" />
+                </div>
+                <span>انضم إلى مجتمع يشاركك نفس الرحلة الصحية</span>
+              </div>
+            </div>
+            <div class="relative">
+              <div class="aspect-[4/3] rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-sm">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1600&auto=format&fit=crop" alt="وجبة صحية طازجة" class="h-full w-full object-cover" loading="lazy" />
+              </div>
+              <div class="absolute -bottom-6 -left-4 rtl:-right-4 rtl:left-auto bg-white/80 backdrop-blur rounded-xl shadow border border-slate-200 px-4 py-3 flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">🍏</div>
+                <div>
+                  <p class="text-sm font-semibold text-slate-900">نصائح يومية قصيرة</p>
+                  <p class="text-xs text-slate-500">مكيّفة حسب جدولك وأهدافك</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Importance & Features -->
+      <section id="ai" class="py-16 sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">الذكاء الاصطناعي: شريكك اليومي للأكل الصحي</h2>
+              <p class="mt-4 text-slate-700">بدل ما تحتاج وقت طويل للتعلّم والتخطيط، الذكاء الاصطناعي يختصر لك الطريق ويقترح ما يناسبك فعليًا.</p>
+              <ul class="mt-6 space-y-3 text-slate-700">
+                <li class="flex items-start gap-3"><span class="h-6 w-6 rounded-full bg-primary/10 text-primary inline-flex items-center justify-center">📷</span><span>التعرّف على الطعام من الصورة: تقدير مكونات الطبق والسعرات الحرارية.</span></li>
+                <li class="flex items-start gap-3"><span class="h-6 w-6 rounded-full bg-primary/10 text-primary inline-flex items-center justify-center">🧠</span><span>اقتراحات ذكية مكيّفة لجدولك وذوقك وأهدافك.</span></li>
+                <li class="flex items-start gap-3"><span class="h-6 w-6 rounded-full bg-primary/10 text-primary inline-flex items-center justify-center">🥗</span><span>بدائل صحية للوجبة الحالية مع مجموعات خيارات متعددة.</span></li>
+                <li class="flex items-start gap-3"><span class="h-6 w-6 rounded-full bg-primary/10 text-primary inline-flex items-center justify-center">📊</span><span>تحليل أسبوعي بسيط لتتبع تقدمك بدون تعقيد.</span></li>
+              </ul>
+              <div class="mt-6">
+                <a href="#join" class="px-6 py-3 rounded-xl bg-primary text-white hover:bg-primary/90 transition">جرّبه مع المجتمع</a>
+              </div>
+            </div>
+            <div>
+              <div class="aspect-[4/3] rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-sm">
+                <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?q=80&w=1600&auto=format&fit=crop" alt="ذكاء اصطناعي يدعم خيارات طعام صحية" class="h-full w-full object-cover" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Therapeutic Nutrition + Technology Copy -->
+      <section id="therapy" class="py-16 sm:py-20 bg-slate-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">التغذية العلاجية مش بس أكل صحي… صارت أذكى!</h2>
+            <p class="mt-4 text-slate-700">زمان، كنا نسمع "كل خضار أكثر" أو "خفف سكريات"، بس اليوم الموضوع أعمق من هيك… مع الذكاء الاصطناعي والتكنولوجيا، صار فينا:</p>
+          </div>
+          <div class="mt-8 max-w-3xl mx-auto">
+            <ul class="space-y-3 text-slate-700">
+              <li class="flex items-start gap-3"><span class="h-6 w-6 rounded-full bg-primary/10 text-primary inline-flex items-center justify-center">🧬</span><span>نحلل احتياجات جسمك بشكل شخصي.</span></li>
+              <li class="flex items-start gap-3"><span class="h-6 w-6 rounded-full bg-primary/10 text-primary inline-flex items-center justify-center">🍽️</span><span>نعرف شو الأكل الأنسب لحالتك الصحية.</span></li>
+              <li class="flex items-start gap-3"><span class="h-6 w-6 rounded-full bg-primary/10 text-primary inline-flex items-center justify-center">📅</span><span>نعطيك خطط غذائية عملية، تناسب حياتك اليومية.</span></li>
+              <li class="flex items-start gap-3"><span class="h-6 w-6 rounded-full bg-primary/10 text-primary inline-flex items-center justify-center">💪</span><span>نوصلك لنسخة أقوى وأصح من نفسك.</span></li>
+            </ul>
+            <p class="mt-6 text-slate-700">التغذية العلاجية + التكنولوجيا = رحلة علمية ممتعة، من فهم المغذيات (كربوهيدرات، بروتين، دهون، فيتامينات، معادن) لغاية تطبيقها بأسلوب بسيط وسهل.</p>
+          </div>
+          <div class="mt-10 max-w-3xl mx-auto">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="font-bold text-slate-900">في جروبنا رح تلاقي:</h3>
+              <ul class="mt-4 space-y-2 text-slate-700 list-disc pr-6">
+                <li>نصائح علمية بأسلوب عملي.</li>
+                <li>استخدام الذكاء الاصطناعي لاقتراح وجبات وخطط.</li>
+                <li>دعم ومشاركة مع ناس عندهم نفس الهدف.</li>
+              </ul>
+              <div class="mt-6">
+                <a href="#join" class="px-6 py-3 rounded-xl bg-primary text-white hover:bg-primary/90 transition">انضم الآن</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section id="how" class="py-16 sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">كيف نعمل؟</h2>
+            <p class="mt-3 text-slate-600">خطوات بسيطة وممتعة.</p>
+          </div>
+          <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">1</div>
+              <h3 class="mt-4 font-bold text-slate-900">انضم للمجتمع</h3>
+              <p class="mt-2 text-sm text-slate-600">ادخل مجموعة واتساب لتبدأ رحلتك الصحية.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">2</div>
+              <h3 class="mt-4 font-bold text-slate-900">ذكاء + خبرة</h3>
+              <p class="mt-2 text-sm text-slate-600">اقتراحات مدعومة بالذكاء الاصطناعي ومراجعة خبراء.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">3</div>
+              <h3 class="mt-4 font-bold text-slate-900">خطوات يومية</h3>
+              <p class="mt-2 text-sm text-slate-600">خطوات قصيرة قابلة للتطبيق تناسب جدولك.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">4</div>
+              <h3 class="mt-4 font-bold text-slate-900">تحديات ممتعة</h3>
+              <p class="mt-2 text-sm text-slate-600">برامج وتحديات تحفّزك على الاستمرار.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Smart Food -->
+      <section id="why" class="py-16 sm:py-20 bg-slate-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">لماذا Smart Food؟</h2>
+            <p class="mt-3 text-slate-600">فوائد تنعكس على يومك وصحتك.</p>
+          </div>
+          <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">✨</div>
+              <h3 class="mt-4 font-bold text-slate-900">نصائح ذكية يومية</h3>
+              <p class="mt-2 text-sm text-slate-600">قصيرة ومكيّفة حسب جدولك.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">💡</div>
+              <h3 class="mt-4 font-bold text-slate-900">خطوات عملية</h3>
+              <p class="mt-2 text-sm text-slate-600">تحسين صحي بدون تعقيد.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">🤝</div>
+              <h3 class="mt-4 font-bold text-slate-900">مجتمع داعم</h3>
+              <p class="mt-2 text-sm text-slate-600">ناس تعيش نفس الرحلة.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">🎯</div>
+              <h3 class="mt-4 font-bold text-slate-900">تحديات وبرامج</h3>
+              <p class="mt-2 text-sm text-slate-600">ممتعة ومحفّزة للاستمرار.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Regional Stats with Inline Bars -->
+      <!-- <section id="stats" class="py-16 sm:py-20 bg-slate-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">نمو السمنة في العالم العربي</h2>
+            <p class="mt-3 text-slate-600">الاتجاهات العامة تشير إلى ارتفاع في معظم الدول، خاصة بين النساء، بسبب تغيّر الأنماط الغذائية وانخفاض النشاط البدني.</p>
+          </div>
+          <div class="mt-8 max-w-3xl mx-auto space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="w-24 text-slate-700">السعودية</span>
+              <div class="flex-1 h-3 rounded-full bg-slate-200 overflow-hidden"><div class="h-full bg-primary" style="width:24.1%"></div></div>
+              <span class="w-16 text-slate-700 text-sm">24.1%</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-24 text-slate-700">الإمارات</span>
+              <div class="flex-1 h-3 rounded-full bg-slate-200 overflow-hidden"><div class="h-full bg-primary" style="width:10.3%"></div></div>
+              <span class="w-16 text-slate-700 text-sm">10.3%</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-24 text-slate-700">قطر</span>
+              <div class="flex-1 h-3 rounded-full bg-slate-200 overflow-hidden"><div class="h-full bg-primary" style="width:22.8%"></div></div>
+              <span class="w-16 text-slate-700 text-sm">22.8%</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-24 text-slate-700">مصر</span>
+              <div class="flex-1 h-3 rounded-full bg-slate-200 overflow-hidden"><div class="h-full bg-primary" style="width:22.1%"></div></div>
+              <span class="w-16 text-slate-700 text-sm">22.1%</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-24 text-slate-700">الكويت</span>
+              <div class="flex-1 h-3 rounded-full bg-slate-200 overflow-hidden"><div class="h-full bg-primary" style="width:20.7%"></div></div>
+              <span class="w-16 text-slate-700 text-sm">20.7%</span>
+            </div>
+          </div>
+          <p class="mt-4 text-xs text-slate-500 max-w-3xl mx-auto">مراجع مختصرة: دراسات 2020–2023 تشير إلى ثبات نسبي في السعودية (~21.4%) مع فروقات بين الجنسين، ونسب مرتفعة لزيادة الوزن والسمنة في الإمارات (~68.3% زيادة وزن/سمنة). الأرقام تقريبية للعرض التوضيحي.</p>
+        </div>
+      </section> -->
+
+      <!-- Testimonials -->
+      <section id="stories" class="py-16 sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">تجارب واقعية</h2>
+            <p class="mt-3 text-slate-600">قصص من المجتمع.</p>
+          </div>
+          <div class="mt-10 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="flex items-center gap-3">
+                <img src="./assets/default-profile.webp" alt="أروى" class="h-10 w-10 rounded-full" loading="lazy" />
+                <div>
+                  <p class="font-semibold text-slate-900">أروى</p>
+                  <p class="text-xs text-slate-500">موظفة</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-slate-700">نصائح قصيرة وسهلة طبقتها في يومي بدون ما أحس بثقل. فقدت 4 كجم خلال شهرين.</p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="flex items-center gap-3">
+                <img src="./assets/default-profile.webp" alt="سيف" class="h-10 w-10 rounded-full" loading="lazy" />
+                <div>
+                  <p class="font-semibold text-slate-900">سيف</p>
+                  <p class="text-xs text-slate-500">طالب جامعي</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-slate-700">التحديات الأسبوعية كانت ممتعة جدًا وخليتني ألتزم أكثر.</p>
+            </article>
+            <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="flex items-center gap-3">
+                <img src="./assets/default-profile.webp" alt="ريم" class="h-10 w-10 rounded-full" loading="lazy" />
+                <div>
+                  <p class="font-semibold text-slate-900">ريم</p>
+                  <p class="text-xs text-slate-500">أم عاملة</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-slate-700">خطوات عملية بسيطة حسّنت نومي وطاقة يومي بشكل واضح.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section id="join" class="py-16 sm:py-20">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div class="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-tr from-primary/10 via-white to-white p-8 sm:p-12 shadow-sm">
+            <div class="absolute -top-16 -left-16 rtl:-right-16 rtl:left-auto h-40 w-40 rounded-full bg-primary/20 blur-2xl"></div>
+            <div class="relative">
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">انضم الآن إلى مجتمع Smart Food على واتساب</h2>
+              <p class="mt-3 text-slate-700">ابدأ بخطوات صغيرة—وتغييرات كبيرة على المدى الطويل.</p>
+              <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <a href="https://lnkd.in/d5v4acfP" target="_blank" class="px-6 py-3 rounded-xl bg-primary text-white hover:bg-primary/90 transition text-center">انضم عبر واتساب</a>
+                
+                <a href="https://www.linkedin.com/company/smart-food-ai/?viewAsMember=true" target="_blank" rel="noreferrer" class="px-6 py-3 rounded-xl border border-slate-300 text-slate-800 hover:border-primary hover:text-primary transition inline-flex items-center justify-center gap-2">
+                  <span class="inline-flex h-5 w-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 11.268h-3v-5.604c0-1.337-.027-3.058-1.862-3.058-1.862 0-2.147 1.454-2.147 2.957v5.705h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.562 2.839-1.562 3.039 0 3.6 2.001 3.6 4.604v5.591z"/></svg>
+                  </span>
+                  تابعنا على لينكدإن
+                </a>
+                <!-- <a href="#how" class="px-6 py-3 rounded-xl border border-slate-300 text-slate-800 hover:border-primary hover:text-primary transition text-center">تعرّف أكثر</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- FAQ: AI accuracy and privacy -->
+      <section id="faq" class="py-16 sm:py-20 bg-slate-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 text-center">أسئلة شائعة</h2>
+            <div class="mt-8 space-y-4">
+              <details class="rounded-xl border border-slate-200 bg-white p-4">
+                <summary class="font-semibold cursor-pointer">ما دقة تقدير السعرات من الصور؟</summary>
+                <p class="mt-3 text-slate-700">الدقة جيدة للوجبات الشائعة والإضاءة الجيدة، لكنها تقديرية. نقارن مع قواعد بيانات غذائية ونسمح لك بتعديل المكونات والكمية لتحسين الدقة.</p>
+              </details>
+              <details class="rounded-xl border border-slate-200 bg-white p-4">
+                <summary class="font-semibold cursor-pointer">هل يراجع خبراء تغذية النتائج؟</summary>
+                <p class="mt-3 text-slate-700">نعم، نقدم مراجعات مختصين للحالات التي تحتاج تخصيص أعلى، ونستخدم ملاحظاتهم لتحسين النموذج.</p>
+              </details>
+              <details class="rounded-xl border border-slate-200 bg-white p-4">
+                <summary class="font-semibold cursor-pointer">ماذا عن الخصوصية؟</summary>
+                <p class="mt-3 text-slate-700">الصور تُستخدم لأغراض التحليل فقط ويمكن حذفها متى شئت. نلتزم بأفضل ممارسات الخصوصية ولا نشارك بياناتك مع طرف ثالث بدون موافقة.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Floating WhatsApp CTA -->
+    <div class="fixed bottom-4 left-4 rtl:left-auto rtl:right-4 z-40">
+      <a href="https://lnkd.in/d5v4acfP" target="_blank" class="inline-flex items-center gap-2 px-4 py-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition">
+        <span>انضم عبر واتساب</span>
+        <span>📱</span>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3 text-slate-600">
+          <img src="./assets/logo.png" alt="شعار Smart Food" class="h-8 w-auto" />
+          <span class="text-slate-400">© <span id="year"></span></span>
+        </div>
+        <div class="text-sm text-slate-500">
+          <a href="#how" class="hover:text-primary transition">كيف نعمل</a>
+          <span class="mx-2">•</span>
+          <a href="#why" class="hover:text-primary transition">لماذا</a>
+          <span class="mx-2">•</span>
+          <a href="#stories" class="hover:text-primary transition">قصص</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+  </html>
+
